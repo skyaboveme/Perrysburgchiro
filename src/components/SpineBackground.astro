@@ -1,0 +1,36 @@
+---
+/**
+ * SpineBackground.astro — Full-viewport Three.js canvas
+ * Renders the interactive 3D particle spine behind all content.
+ */
+---
+
+<canvas id="spine-canvas" aria-hidden="true"></canvas>
+
+<style>
+  #spine-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.65;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #spine-canvas {
+      opacity: 0.3;
+    }
+  }
+</style>
+
+<script>
+  import { initSpineScene } from '../scripts/spine-scene';
+
+  const canvas = document.getElementById('spine-canvas') as HTMLCanvasElement;
+  if (canvas) {
+    initSpineScene(canvas);
+  }
+</script>

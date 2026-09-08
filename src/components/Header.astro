@@ -1,0 +1,274 @@
+---
+/**
+ * Header.astro — Sticky frosted-glass navigation
+ */
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '/' } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#reviews', label: 'Reviews' },
+  { href: '/#contact', label: 'Contact' },
+];
+---
+
+<header class="site-header" id="site-header">
+  <div class="header-inner container">
+    <a href="/" class="logo" aria-label="Precision Spinal Care Home">
+      <span class="logo-mark">PSC</span>
+      <span class="logo-text">Precision<br />Spinal Care</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+      <ul class="nav-list">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav-link', { active: currentPath === link.href }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href="tel:1-419-873-7223" class="nav-phone btn btn--primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (419) 873-7223
+      </a>
+    </nav>
+
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .site-header.scrolled {
+    padding: 0.6rem 0;
+    background: rgba(10, 14, 23, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* ── Logo ── */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--teal-glow), #04b890);
+    border-radius: 10px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--midnight);
+    letter-spacing: 0.02em;
+  }
+
+  .logo-text {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--bone-white);
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Nav ── */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+    border-radius: var(--radius-full);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--bone-white);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-link.active {
+    color: var(--teal-glow);
+  }
+
+  .nav-phone {
+    margin-left: 1rem;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  /* ── Mobile Toggle ── */
+  .mobile-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 20px;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 2px;
+    background: var(--bone-white);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-toggle[aria-expanded="true"] .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .mobile-toggle[aria-expanded="true"] .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-toggle[aria-expanded="true"] .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .mobile-toggle {
+      display: flex;
+    }
+
+    .main-nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(320px, 85vw);
+      height: 100vh;
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-left: 1px solid rgba(255, 255, 255, 0.06);
+      flex-direction: column;
+      align-items: stretch;
+      padding: 5rem 1.5rem 2rem;
+      gap: 0.5rem;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 999;
+    }
+
+    .main-nav.open {
+      transform: translateX(0);
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      font-size: 1.1rem;
+      padding: 0.75rem 1rem;
+    }
+
+    .nav-phone {
+      margin-left: 0;
+      margin-top: 1rem;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  // Scroll-aware header
+  const header = document.getElementById('site-header');
+  if (header) {
+    const onScroll = () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('mobile-toggle');
+  const nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open', !expanded);
+      document.body.style.overflow = expanded ? '' : 'hidden';
+    });
+
+    // Close on nav link click
+    nav.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>

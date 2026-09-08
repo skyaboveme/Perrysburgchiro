@@ -1,0 +1,119 @@
+---
+/**
+ * about.astro — About Precision Spinal Care
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About Us — Precision Spinal Care" description="Learn about Dr. Taylor Mainous and our approach to structural corrective chiropractic care in Perrysburg, Ohio." currentPath="/about">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label" style="justify-content:center;">About Us</span>
+      <h1 class="text-center">About <span class="text-teal">Precision Spinal Care</span></h1>
+      <p class="page-hero-sub text-center mx-auto">Structural corrective chiropractic care in Perrysburg, Ohio — where precision meets compassion.</p>
+    </div>
+  </section>
+
+  <section class="about-detail">
+    <div class="container">
+      <div class="about-detail-grid">
+        <div class="about-detail-image fade-up">
+          <div class="about-image-frame">
+            <img
+              src="https://chiropractorperrysburg.com/wp-content/uploads/2026/03/IMG_9167.jpg"
+              alt="Dr. Taylor Mainous D.C."
+              loading="lazy"
+              width="600"
+              height="400"
+            />
+          </div>
+        </div>
+        <div class="about-detail-content">
+          <h2 class="section-title">Dr. Taylor Mainous <span class="text-gold">D.C.</span></h2>
+          <div class="gold-line"></div>
+          <p class="fade-up">Dr. Taylor is focused on delivering Structural Corrective care, utilizing objective analytics and research-backed methods. His approach is completely different from traditional chiropractic — no guessing, no cracking, just precise structural correction.</p>
+          <p class="fade-up">With state-of-the-art CBCT 3D imaging technology, Dr. Taylor can pinpoint exactly where the problems are in your spine and create a customized corrective plan backed by measurable data.</p>
+          <p class="fade-up">At Precision Spinal Care, our chiropractic team is ready to meet with you to discuss your needs. We will help design a program that is right for you — whether you're dealing with chronic pain, recovering from an injury, or looking to optimize your overall health.</p>
+
+          <div class="about-values cards-stagger" style="margin-top: var(--space-xl);">
+            <div class="value-item glass--subtle" style="padding: var(--space-md); border-radius: var(--radius-md);">
+              <h4><span class="text-teal">01.</span> Precision Diagnosis</h4>
+              <p style="font-size:0.9rem;">CBCT 3D imaging and objective analytics — not guesswork.</p>
+            </div>
+            <div class="value-item glass--subtle" style="padding: var(--space-md); border-radius: var(--radius-md);">
+              <h4><span class="text-teal">02.</span> Structural Correction</h4>
+              <p style="font-size:0.9rem;">Addressing the root cause, not just masking symptoms.</p>
+            </div>
+            <div class="value-item glass--subtle" style="padding: var(--space-md); border-radius: var(--radius-md);">
+              <h4><span class="text-teal">03.</span> Measurable Progress</h4>
+              <p style="font-size:0.9rem;">We show you your improvement with objective data at every step.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: 10rem;
+    padding-bottom: var(--space-xl);
+    text-align: center;
+  }
+
+  .page-hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 50ch;
+    margin-top: var(--space-sm);
+  }
+
+  .about-detail {
+    background: rgba(17, 24, 39, 0.3);
+  }
+
+  .about-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .about-image-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow-card);
+  }
+
+  .about-image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .about-detail-content p {
+    margin-bottom: var(--space-sm);
+  }
+
+  .about-values {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .value-item h4 {
+    margin-bottom: 0.35rem;
+  }
+
+  @media (max-width: 900px) {
+    .about-detail-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+  }
+</style>
