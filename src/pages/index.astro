@@ -95,23 +95,69 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2 class="section-title">Who Can We <span class="text-teal">Help?</span></h2>
       <p class="section-subtitle fade-up">Our structural corrective approach has helped patients with a wide range of conditions, from pediatric to adult care.</p>
       <div class="conditions-grid cards-stagger">
-        {[
-          { icon: '🧒', title: 'Colic', desc: 'Gentle structural care for infant comfort' },
-          { icon: '👂', title: 'Ear Infections', desc: 'Addressing the nervous system connection' },
-          { icon: '🧠', title: 'ADHD / Focus', desc: 'Supporting neurological development' },
-          { icon: '✋', title: 'Sensory Processing', desc: 'Helping the nervous system regulate' },
-          { icon: '💫', title: 'Post Concussion', desc: 'Structural recovery support' },
-          { icon: '🫁', title: 'Asthma & Allergies', desc: 'Improving respiratory nerve function' },
-          { icon: '⚡', title: 'Nervous System', desc: 'Optimizing overall neural health' },
-          { icon: '🤰', title: 'Pregnancy', desc: 'Safe, specialized prenatal adjustments' },
-          { icon: '🏃', title: 'Sports Injuries', desc: 'Performance recovery & prevention' },
-        ].map((item) => (
-          <div class="condition-card glass--subtle">
-            <span class="condition-icon">{item.icon}</span>
-            <h4>{item.title}</h4>
-            <p>{item.desc}</p>
+        <div class="condition-card glass--subtle">
+          <div class="condition-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><circle cx="12" cy="12" r="10"/><path d="M8 8c0-1.1.9-2 2-2s2 .9 2 2M12 8c0-1.1.9-2 2-2s2 .9 2 2"/></svg>
           </div>
-        ))}
+          <h4>Colic</h4>
+          <p>Gentle structural care for infant comfort</p>
+        </div>
+        <div class="condition-card glass--subtle">
+          <div class="condition-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6.5 10-6.5 10S6 14.5 6 8.5"/><path d="M15 8.5a2.5 2.5 0 0 0-5 0"/></svg>
+          </div>
+          <h4>Ear Infections</h4>
+          <p>Addressing the nervous system connection</p>
+        </div>
+        <div class="condition-card glass--subtle">
+          <div class="condition-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 2 .5 3.5 1.5 5L12 22l5.5-8c1-1.5 1.5-3 1.5-5a7 7 0 0 0-7-7z"/><path d="M10 9.5a2 2 0 1 1 4 0c0 1.5-2 2.5-2 4"/><circle cx="12" cy="16" r=".5"/></svg>
+          </div>
+          <h4>ADHD / Focus</h4>
+          <p>Supporting neurological development</p>
+        </div>
+        <div class="condition-card glass--subtle">
+          <div class="condition-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-5.9-2.3L2.3 16A2 2 0 0 1 2 14.5a2 2 0 0 1 3 0l1.9 2"/></svg>
+          </div>
+          <h4>Sensory Processing</h4>
+          <p>Helping the nervous system regulate</p>
+        </div>
+        <div class="condition-card glass--subtle">
+          <div class="condition-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><path d="M16 16l2 2"/></svg>
+          </div>
+          <h4>Post Concussion</h4>
+          <p>Structural recovery support</p>
+        </div>
+        <div class="condition-card glass--subtle">
+          <div class="condition-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 7C8 4 10 2 12 2s4 2 5.5 5"/><path d="M4 12c0-2 .5-4 1.5-5.5"/><path d="M18.5 6.5C19.5 8 20 10 20 12"/><ellipse cx="12" cy="14" rx="7" ry="8"/><path d="M12 6v4M9 11l3 3 3-3"/></svg>
+          </div>
+          <h4>Asthma & Allergies</h4>
+          <p>Improving respiratory nerve function</p>
+        </div>
+        <div class="condition-card glass--subtle">
+          <div class="condition-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h4>Nervous System</h4>
+          <p>Optimizing overall neural health</p>
+        </div>
+        <div class="condition-card glass--subtle">
+          <div class="condition-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0"/><path d="M12 2v4M12 18v4"/><path d="M9 5C9 7 10.5 9 12 9s3-2 3-4"/><path d="M9 19c0-2 1.5-4 3-4s3 2 3 4"/><path d="M5 12H2M22 12h-3"/></svg>
+          </div>
+          <h4>Pregnancy</h4>
+          <p>Safe, specialized prenatal adjustments</p>
+        </div>
+        <div class="condition-card glass--subtle">
+          <div class="condition-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M6.5 8h11"/><path d="M12 8v5"/><path d="M9 13l-4 8"/><path d="M15 13l4 8"/><path d="M7 21l5-5 5 5"/></svg>
+          </div>
+          <h4>Sports Injuries</h4>
+          <p>Performance recovery & prevention</p>
+        </div>
       </div>
     </div>
   </section>
@@ -125,21 +171,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2 class="section-title">How Can Chiropractic<br /><span class="text-gold">Help You?</span></h2>
       <p class="section-subtitle fade-up">Many people dismiss chiropractic as being only for back pain — but treatment addresses a wide variety of physical issues.</p>
       <div class="services-grid cards-stagger">
-        {[
-          { title: 'Migraines & Headaches', desc: 'Structural misalignments in the upper cervical spine are a leading cause of chronic headaches. We correct the root cause.', icon: '🎯' },
-          { title: 'Chronic Pain', desc: 'Persistent pain signals often trace back to spinal structural issues. Our corrective approach addresses the source, not the symptom.', icon: '🔥' },
-          { title: 'Carpal Tunnel', desc: 'Nerve compression in the spine can contribute to extremity symptoms. We evaluate the full neural pathway.', icon: '🤚' },
-          { title: 'Injury Rehab', desc: 'Whether from auto accidents, work injuries, or sports — structural corrective care accelerates healing and prevents re-injury.', icon: '🔧' },
-          { title: 'Sciatica', desc: 'Radiating leg pain from compressed nerve roots responds exceptionally well to precise structural correction.', icon: '⚡' },
-          { title: 'Wellness Care', desc: 'Proactive spinal maintenance prevents problems before they start. Keep your nervous system functioning at its peak.', icon: '💎' },
-        ].map((svc) => (
-          <div class="service-card card">
-            <span class="service-icon">{svc.icon}</span>
-            <h3>{svc.title}</h3>
-            <div class="gold-line"></div>
-            <p>{svc.desc}</p>
+        <div class="service-card card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
           </div>
-        ))}
+          <h3>Migraines & Headaches</h3>
+          <div class="gold-line"></div>
+          <p>Structural misalignments in the upper cervical spine are a leading cause of chronic headaches. We correct the root cause.</p>
+        </div>
+        <div class="service-card card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12s1.5 2 4 2 4-2 4-2"/><path d="M9 8h.01M15 8h.01"/><path d="M12 2a7 7 0 0 0-4 12.9"/><path d="M12 2a7 7 0 0 1 4 12.9"/></svg>
+          </div>
+          <h3>Chronic Pain</h3>
+          <div class="gold-line"></div>
+          <p>Persistent pain signals often trace back to spinal structural issues. Our corrective approach addresses the source, not the symptom.</p>
+        </div>
+        <div class="service-card card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-5.9-2.3L2.3 16A2 2 0 0 1 2 14.5a2 2 0 0 1 3 0l1.9 2"/></svg>
+          </div>
+          <h3>Carpal Tunnel</h3>
+          <div class="gold-line"></div>
+          <p>Nerve compression in the spine can contribute to extremity symptoms. We evaluate the full neural pathway.</p>
+        </div>
+        <div class="service-card card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Injury Rehab</h3>
+          <div class="gold-line"></div>
+          <p>Whether from auto accidents, work injuries, or sports — structural corrective care accelerates healing and prevents re-injury.</p>
+        </div>
+        <div class="service-card card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Sciatica</h3>
+          <div class="gold-line"></div>
+          <p>Radiating leg pain from compressed nerve roots responds exceptionally well to precise structural correction.</p>
+        </div>
+        <div class="service-card card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>Wellness Care</h3>
+          <div class="gold-line"></div>
+          <p>Proactive spinal maintenance prevents problems before they start. Keep your nervous system functioning at its peak.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -504,9 +583,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .condition-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: var(--space-sm);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--teal-dim);
+    border-radius: var(--radius-md);
+    margin: 0 auto var(--space-sm);
   }
 
   .condition-card h4 {
@@ -539,9 +623,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .service-icon {
-    font-size: 1.8rem;
-    display: block;
-    margin-bottom: var(--space-sm);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--teal-dim);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
   }
 
   .service-card h3 {
