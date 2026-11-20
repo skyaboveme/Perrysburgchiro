@@ -11,8 +11,13 @@
       <!-- Brand Column -->
       <div class="footer-col footer-brand">
         <a href="/" class="footer-logo">
-          <span class="logo-mark">PSC</span>
-          <span class="logo-text">Precision<br />Spinal Care</span>
+          <img
+            class="logo-wordmark"
+            src="/precision-spinal-care-logo.png"
+            alt="Precision Spinal Care"
+            width="422"
+            height="131"
+          />
         </a>
         <p class="footer-tagline">Natural, non-invasive pain relief through structural corrective care.</p>
         <div class="footer-socials">
@@ -113,26 +118,11 @@
     text-decoration: none;
   }
 
-  .footer-logo .logo-mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--teal-glow), #04b890);
-    border-radius: 10px;
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 0.85rem;
-    color: var(--midnight);
-  }
-
-  .footer-logo .logo-text {
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    font-weight: 600;
-    line-height: 1.25;
-    color: var(--bone-white);
+  .footer-logo .logo-wordmark {
+    display: block;
+    height: 42px;
+    width: auto;
+    filter: brightness(0) invert(1);
   }
 
   .footer-tagline {
