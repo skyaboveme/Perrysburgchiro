@@ -4,6 +4,7 @@
  * Sections: Hero → Why Us → Who We Help → Services → Reviews+Booking → About → Hours → Contact
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
 ---
 
 <BaseLayout title="Precision Spinal Care — Chiropractor in Perrysburg, OH" currentPath="/">
@@ -12,6 +13,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
        HERO
        ═══════════════════════════════════════════════════════════════ -->
   <section class="hero" id="hero">
+    <div class="hero-photo">
+      <img
+        src="/gallery/IMG_5042.jpg"
+        alt="Consultation at Precision Spinal Care in Perrysburg"
+        width="1200"
+        height="800"
+      />
+    </div>
     <div class="hero-content container">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
@@ -66,22 +75,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h2 class="section-title">A Different Approach to<br /><span class="text-teal">Chiropractic Care</span></h2>
       </div>
       <div class="why-grid cards-stagger">
-        <div class="glass card why-card">
+        <a class="glass card why-card" href="/structural-chiropractic-vs-traditional-chiropractic">
+          <img class="card-photo" src="/gallery/IMG_5190.jpg" alt="" width="1200" height="800" />
           <div class="why-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
           </div>
           <h3>Structural Corrective Care</h3>
           <div class="gold-line"></div>
           <p>Unlike quick-fix adjustments, Dr. Taylor focuses on correcting the root structural issues in your spine using objective analytics and research-backed methods — no guessing, no cracking.</p>
-        </div>
-        <div class="glass card why-card">
+        </a>
+        <a class="glass card why-card" href="/3d-cbct-imaging">
+          <img class="card-photo" src="/gallery/IMG_5284.jpg" alt="" width="1200" height="800" />
           <div class="why-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
           <h3>CBCT 3D Imaging</h3>
           <div class="gold-line"></div>
           <p>State-of-the-art Cone Beam CT imaging delivers precise 3D visualization of your spine — allowing us to pinpoint exactly where the problem is and measure your progress objectively.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -171,54 +182,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2 class="section-title">How Can Chiropractic<br /><span class="text-gold">Help You?</span></h2>
       <p class="section-subtitle fade-up">Many people dismiss chiropractic as being only for back pain — but treatment addresses a wide variety of physical issues.</p>
       <div class="services-grid cards-stagger">
-        <div class="service-card card">
+        <a class="service-card card" href="/headaches-migraines">
+          <img class="card-photo" src="/gallery/IMG_5331.jpg" alt="" width="1200" height="800" />
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
           </div>
           <h3>Migraines & Headaches</h3>
           <div class="gold-line"></div>
           <p>Structural misalignments in the upper cervical spine are a leading cause of chronic headaches. We correct the root cause.</p>
-        </div>
-        <div class="service-card card">
+        </a>
+        <a class="service-card card" href="/back-pain">
+          <img class="card-photo" src="/gallery/IMG_5157.jpg" alt="" width="1200" height="800" />
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12s1.5 2 4 2 4-2 4-2"/><path d="M9 8h.01M15 8h.01"/><path d="M12 2a7 7 0 0 0-4 12.9"/><path d="M12 2a7 7 0 0 1 4 12.9"/></svg>
           </div>
           <h3>Chronic Pain</h3>
           <div class="gold-line"></div>
           <p>Persistent pain signals often trace back to spinal structural issues. Our corrective approach addresses the source, not the symptom.</p>
-        </div>
-        <div class="service-card card">
+        </a>
+        <a class="service-card card" href="/carpal-tunnel">
+          <img class="card-photo" src="/gallery/IMG_5392.jpg" alt="" width="1200" height="800" />
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-5.9-2.3L2.3 16A2 2 0 0 1 2 14.5a2 2 0 0 1 3 0l1.9 2"/></svg>
           </div>
           <h3>Carpal Tunnel</h3>
           <div class="gold-line"></div>
           <p>Nerve compression in the spine can contribute to extremity symptoms. We evaluate the full neural pathway.</p>
-        </div>
-        <div class="service-card card">
+        </a>
+        <a class="service-card card" href="/whiplash">
+          <img class="card-photo" src="/gallery/IMG_5100.jpg" alt="" width="1200" height="800" />
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <h3>Injury Rehab</h3>
           <div class="gold-line"></div>
           <p>Whether from auto accidents, work injuries, or sports — structural corrective care accelerates healing and prevents re-injury.</p>
-        </div>
-        <div class="service-card card">
+        </a>
+        <a class="service-card card" href="/sciatica">
+          <img class="card-photo" src="/gallery/IMG_5186.jpg" alt="" width="1200" height="800" />
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
           <h3>Sciatica</h3>
           <div class="gold-line"></div>
           <p>Radiating leg pain from compressed nerve roots responds exceptionally well to precise structural correction.</p>
-        </div>
-        <div class="service-card card">
+        </a>
+        <a class="service-card card" href="/wellness-care">
+          <img class="card-photo" src="/gallery/IMG_5081.jpg" alt="" width="1200" height="800" />
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-glow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
           </div>
           <h3>Wellness Care</h3>
           <div class="gold-line"></div>
           <p>Proactive spinal maintenance prevents problems before they start. Keep your nervous system functioning at its peak.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -315,8 +332,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="about-image-wrap fade-up">
           <div class="about-image-frame">
             <img
-              src="https://chiropractorperrysburg.com/wp-content/uploads/2026/03/IMG_9167.jpg"
-              alt="Dr. Taylor Mainous D.C. — Chiropractor at Precision Spinal Care"
+              src="/gallery/IMG_5050.jpg"
+              alt="Structural consult at Precision Spinal Care in Perrysburg"
               class="about-image"
               loading="lazy"
               width="600"
@@ -339,6 +356,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  <PhotoGallery />
 
   <!-- ═══════════════════════════════════════════════════════════════
        OFFICE HOURS
@@ -389,6 +408,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     justify-content: center;
     position: relative;
     padding-top: 6rem;
+    overflow: hidden;
+  }
+
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.34;
+  }
+
+  .hero-content,
+  .hero-scroll-indicator {
+    position: relative;
+    z-index: 1;
   }
 
   .hero-content {
@@ -536,8 +575,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-top: var(--space-xl);
   }
 
-  .why-card {
+  .why-card,
+  .service-card {
+    overflow: hidden;
     padding: var(--space-xl);
+  }
+
+  .service-card {
+    padding: var(--space-lg);
+  }
+
+  .card-photo {
+    display: block;
+    width: calc(100% + 2 * var(--space-xl));
+    height: 180px;
+    margin: calc(var(--space-xl) * -1) calc(var(--space-xl) * -1) var(--space-md);
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .service-card .card-photo {
+    width: calc(100% + 2 * var(--space-lg));
+    height: 150px;
+    margin: calc(var(--space-lg) * -1) calc(var(--space-lg) * -1) var(--space-md);
+  }
+
+  a.service-card,
+  a.why-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .service-card:hover h3 {
+    color: var(--teal-glow);
   }
 
   .why-icon {
@@ -616,10 +687,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-md);
     margin-top: var(--space-xl);
-  }
-
-  .service-card {
-    padding: var(--space-lg);
   }
 
   .service-icon {

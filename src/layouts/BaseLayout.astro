@@ -3,7 +3,6 @@
  * BaseLayout.astro — Root layout with SEO, fonts, and global scripts
  */
 import '../styles/global.css';
-import SpineBackground from '../components/SpineBackground.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -81,7 +80,6 @@ const siteUrl = 'https://chiropractorperrysburg.com';
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body>
-  <SpineBackground />
   <Header currentPath={currentPath} />
 
   <main id="main-content" style="position: relative; z-index: 1;">
@@ -94,10 +92,7 @@ const siteUrl = 'https://chiropractorperrysburg.com';
   <script>
     import { initAnimations } from '../scripts/animations';
     document.addEventListener('DOMContentLoaded', () => {
-      // Small delay to let Three.js canvas initialize first
-      requestAnimationFrame(() => {
-        initAnimations();
-      });
+      initAnimations();
     });
   </script>
 </body>

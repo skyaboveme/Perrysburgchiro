@@ -3,6 +3,7 @@
  * about.astro — About Precision Spinal Care
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
 ---
 
 <BaseLayout title="About Us — Precision Spinal Care" description="Learn about Dr. Taylor Mainous and our approach to structural corrective chiropractic care in Perrysburg, Ohio." currentPath="/about">
@@ -21,11 +22,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="about-detail-image fade-up">
           <div class="about-image-frame">
             <img
-              src="https://chiropractorperrysburg.com/wp-content/uploads/2026/03/IMG_9167.jpg"
-              alt="Dr. Taylor Mainous D.C."
+              src="/gallery/IMG_5056.jpg"
+              alt="Structural consult at Precision Spinal Care"
               loading="lazy"
-              width="600"
-              height="400"
+              width="1200"
+              height="800"
+            />
+            <img
+              class="about-second"
+              src="/gallery/IMG_5366.jpg"
+              alt="Seated visit at the Perrysburg office"
+              loading="lazy"
+              width="1200"
+              height="800"
             />
           </div>
         </div>
@@ -54,6 +63,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  <PhotoGallery />
 
 </BaseLayout>
 
