@@ -2,6 +2,9 @@
   "name": "perrysburgchiro",
   "account_id": "aa96f50b9174b128d2cbe8f6db54b940",
   "compatibility_date": "2026-11-20",
+  "build": {
+    "command": "npm run build"
+  },
   "assets": {
     "directory": "./dist"
   }
