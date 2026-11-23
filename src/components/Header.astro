@@ -117,11 +117,11 @@ const careActive = careMenu.some((group) =>
 
   .site-header.scrolled {
     padding: 0.6rem 0;
-    background: rgba(10, 14, 23, 0.82);
+    background: rgba(246, 241, 232, 0.94);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(70, 52, 32, 0.1);
+    box-shadow: 0 4px 24px rgba(70, 48, 24, 0.08);
   }
 
   .header-inner {
@@ -143,7 +143,7 @@ const careActive = careMenu.some((group) =>
     display: block;
     height: 48px;
     width: auto;
-    filter: brightness(0) invert(1);
+    filter: none;
   }
 
   /* ── Nav ── */
@@ -166,9 +166,9 @@ const careActive = careMenu.some((group) =>
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--muted);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(70, 52, 32, 0.16);
     border-radius: var(--radius-sm);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 253, 248, 0.72);
     transition: all 0.3s ease;
     position: relative;
   }
@@ -176,8 +176,8 @@ const careActive = careMenu.some((group) =>
   .nav-link:hover,
   .nav-link.active {
     color: var(--bone-white);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.32);
+    background: rgba(255, 253, 248, 0.95);
+    border-color: rgba(70, 52, 32, 0.32);
   }
 
   .nav-link.active {
@@ -193,7 +193,7 @@ const careActive = careMenu.some((group) =>
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 253, 248, 0.72);
     cursor: pointer;
     font: inherit;
   }
@@ -220,8 +220,8 @@ const careActive = careMenu.some((group) =>
     columns: 2;
     column-gap: 1rem;
     padding: 0.75rem;
-    background: rgba(10, 14, 23, 0.96);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #fffdf8;
+    border: 1px solid rgba(70, 52, 32, 0.12);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-card);
     z-index: 40;
@@ -240,7 +240,7 @@ const careActive = careMenu.some((group) =>
   .dropdown-group + .dropdown-group {
     margin-top: 0.65rem;
     padding-top: 0.65rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(70, 52, 32, 0.08);
   }
 
   .dropdown-label {
@@ -266,7 +266,7 @@ const careActive = careMenu.some((group) =>
   .dropdown-link:hover,
   .dropdown-link.active {
     color: var(--bone-white);
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(246, 241, 232, 0.9);
   }
 
   .nav-phone {
@@ -283,8 +283,8 @@ const careActive = careMenu.some((group) =>
     height: 44px;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 253, 248, 0.8);
+    border: 1px solid rgba(70, 52, 32, 0.14);
     border-radius: var(--radius-sm);
     cursor: pointer;
     z-index: 1001;
@@ -327,10 +327,10 @@ const careActive = careMenu.some((group) =>
       right: 0;
       width: min(320px, 85vw);
       height: 100vh;
-      background: rgba(10, 14, 23, 0.95);
+      background: rgba(246, 241, 232, 0.98);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      border-left: 1px solid rgba(255, 255, 255, 0.06);
+      border-left: 1px solid rgba(70, 52, 32, 0.1);
       flex-direction: column;
       align-items: stretch;
       padding: 5rem 1.5rem 2rem;

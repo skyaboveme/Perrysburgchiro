@@ -1,6 +1,6 @@
 /**
  * Chiropractic Care pages. Copy is written for this site.
- * Photo files are clinic visits that are not in the gallery carousel.
+ * Photo files are existing clinic photos in public/gallery.
  */
 
 export interface CarePhoto {
@@ -43,10 +43,7 @@ export const carePages: CarePage[] = [
       { title: 'How we work', text: 'CBCT imaging, a specific plan, and progress you can see.' },
     ],
     photos: [
-      photo('IMG_5043.jpg', 'Spinal model consult at Precision Spinal Care'),
-      photo('IMG_5046.jpg', 'Reviewing spinal structure with a patient in Perrysburg'),
-      photo('IMG_5049.jpg', 'Structural consultation at the Perrysburg office'),
-      photo('IMG_5245.jpg', 'Posture scan review at Precision Spinal Care'),
+      photo('IMG_5245.jpg', 'Dr. Taylor reviewing a spinal scan with a patient'),
     ],
   },
   {
@@ -67,10 +64,7 @@ export const carePages: CarePage[] = [
       { title: 'Measured', text: '3D imaging decides the line of drive before hands do.' },
     ],
     photos: [
-      photo('IMG_5055.jpg', 'Upper cervical consult with a spinal model'),
-      photo('IMG_5059.jpg', 'Explaining the upper neck during a visit'),
-      photo('IMG_5353.jpg', 'Pointing out cervical structure on an imaging workstation'),
-      photo('IMG_5355.jpg', 'Reviewing neck films at Precision Spinal Care'),
+      photo('IMG_5353.jpg', 'Dr. Taylor reviewing an upper cervical scan'),
     ],
   },
   {
@@ -92,8 +86,6 @@ export const carePages: CarePage[] = [
     ],
     photos: [
       photo('IMG_5327.jpg', 'Cervical imaging on the clinic monitor'),
-      photo('IMG_5334.jpg', '3D view of the neck during a headache consult'),
-      photo('IMG_5338.jpg', 'Reviewing a cervical scan with a patient'),
     ],
   },
   {
@@ -134,9 +126,7 @@ export const carePages: CarePage[] = [
       { title: 'No twisting', text: 'Upper cervical work here does not crack the neck.' },
     ],
     photos: [
-      photo('IMG_5342.jpg', 'Cervical imaging used to plan neck care'),
-      photo('IMG_5063.jpg', 'Neck and spine consult in the treatment room'),
-      photo('IMG_5065.jpg', 'Discussing neck structure with a spinal model'),
+      photo('IMG_5342.jpg', 'Dr. Taylor reviewing cervical imaging used to plan neck care'),
     ],
   },
   {
@@ -155,9 +145,7 @@ export const carePages: CarePage[] = [
       { title: 'Daily life', text: 'Walking, sitting, and sleep are the outcomes that matter.' },
     ],
     photos: [
-      photo('IMG_5395.jpg', 'Lower extremity exam at Precision Spinal Care'),
-      photo('IMG_5399.jpg', 'Assessing the foot and ankle during a visit'),
-      photo('IMG_5464.jpg', 'Extremity evaluation in the Perrysburg clinic'),
+      photo('IMG_5198.jpg', 'Dr. Taylor performing a back adjustment'),
     ],
   },
   {
@@ -242,10 +230,10 @@ export const carePages: CarePage[] = [
       { title: 'The spine too', text: 'We check the structural source, not only the foot or hand.' },
     ],
     photos: [
-      photo('IMG_5102.jpg', 'Low-level light therapy during a clinic visit'),
-      photo('IMG_5125.jpg', 'Laser therapy applied in the treatment room'),
+      photo('IMG_5395.jpg', 'Dr. Taylor examining a patient’s foot'),
+      photo('IMG_5403.jpg', 'Foot and ankle exam at Precision Spinal Care'),
       photo('IMG_5477.jpg', 'Red light therapy for the feet at Precision Spinal Care'),
-      photo('IMG_5480.jpg', 'Light therapy session for nerve symptoms'),
+      photo('IMG_5480.jpg', 'Light therapy session for nerve symptoms in the feet'),
     ],
   },
   {
@@ -265,9 +253,8 @@ export const carePages: CarePage[] = [
       { title: 'Know the limit', text: 'We refer when the disc needs another kind of care.' },
     ],
     photos: [
-      photo('IMG_5276.jpg', 'Posture and spinal findings during a disc consult'),
-      photo('IMG_5093.jpg', 'Structural consult for spinal pain'),
-      photo('IMG_5128.jpg', 'Supportive therapy during spinal recovery'),
+      photo('IMG_5276.jpg', 'Dr. Taylor reviewing spinal findings during a disc consult'),
+      photo('IMG_5093.jpg', 'Therapy visit for spinal pain'),
     ],
   },
   {
@@ -286,9 +273,7 @@ export const carePages: CarePage[] = [
       { title: 'A record', text: 'Objective findings matter if an auto claim is part of the story.' },
     ],
     photos: [
-      photo('IMG_5109.jpg', 'Therapeutic session after an injury'),
-      photo('IMG_5116.jpg', 'Light therapy as part of injury recovery'),
-      photo('IMG_5136.jpg', 'Clinic treatment following trauma'),
+      photo('IMG_5334.jpg', 'Dr. Taylor reviewing a 3D cervical scan'),
     ],
   },
   {
@@ -349,9 +334,7 @@ export const carePages: CarePage[] = [
       { title: 'Conservative first', text: 'A non-surgical plan when the exam supports it.' },
     ],
     photos: [
-      photo('IMG_5434.jpg', 'Hand and wrist region evaluated in clinic'),
-      photo('IMG_5444.jpg', 'Extremity assessment for nerve symptoms'),
-      photo('IMG_5113.jpg', 'Therapy used alongside structural care'),
+      photo('IMG_5272.jpg', 'General consultation at Precision Spinal Care'),
     ],
   },
   {
@@ -370,9 +353,7 @@ export const carePages: CarePage[] = [
       { title: 'Do not wait', text: 'A shoulder that is protected for months gets harder to restore.' },
     ],
     photos: [
-      photo('IMG_5141.jpg', 'Therapy for a shoulder and arm complaint'),
-      photo('IMG_5484.jpg', 'Recovery session in the treatment room'),
-      photo('IMG_5494.jpg', 'Light-based therapy during shoulder recovery'),
+      photo('IMG_5276.jpg', 'General consultation with Dr. Taylor'),
     ],
   },
   {
@@ -413,9 +394,7 @@ export const carePages: CarePage[] = [
       { title: 'Gentle', text: 'Relief without a forceful twist.' },
     ],
     photos: [
-      photo('IMG_5222.jpg', 'Family-centered visit at the Perrysburg office'),
-      photo('IMG_5230.jpg', 'Consultation during a family appointment'),
-      photo('IMG_5234.jpg', 'Care visit with family in the room'),
+      photo('IMG_5208.jpg', 'Consultation with a mother during a family visit'),
     ],
   },
   {
@@ -426,6 +405,7 @@ export const carePages: CarePage[] = [
     lede: 'Feeling “not sick” is a low bar. Spinal maintenance is how small shifts stay small.',
     paragraphs: [
       'Wellness care here is the same structural standard we use for injuries: measure, correct, and check that the correction held. It is prevention with data, not a standing appointment to crack the same joint forever.',
+      'Chelsea, Dr. Taylor’s wife and an advanced nurse practitioner, speaks with patients during wellness visits.',
       'People who wait until they are in pain are choosing the harder version of this work. Maintenance is the quieter one.',
     ],
     points: [
@@ -434,9 +414,8 @@ export const carePages: CarePage[] = [
       { title: 'Held corrections', text: 'We adjust when you need it, and we stop when you are holding.' },
     ],
     photos: [
-      photo('IMG_5239.jpg', 'Wellness visit at Precision Spinal Care'),
-      photo('IMG_5502.jpg', 'Recovery and wellness therapy in the clinic'),
-      photo('IMG_5507.jpg', 'Light therapy as part of ongoing care'),
+      photo('IMG_5362.jpg', 'Chelsea, advanced nurse practitioner, speaking with a patient'),
+      photo('IMG_5366.jpg', 'Chelsea speaking with a patient during a wellness visit'),
     ],
   },
 ];
