@@ -44,13 +44,57 @@ if (!page) {
               </div>
             ))}
           </div>
-          <p class="care-cta">
-            <a class="btn btn--primary" href="/#contact">Request an appointment</a>
-          </p>
+          {page.notes && (
+            <div class="about-values">
+              {page.notes.map((note) => (
+                <div class="value-item glass--subtle">
+                  <h4>{note}</h4>
+                </div>
+              ))}
+            </div>
+          )}
+          {!page.sections && (
+            <p class="care-cta">
+              <a class="btn btn--primary" href="/#contact">Request an appointment</a>
+            </p>
+          )}
         </div>
       </div>
     </div>
   </section>
+
+  {page.sections?.map((section) => (
+    <section class="about-detail">
+      <div class="container care-section">
+        {section.label && <span class="section-label">{section.label}</span>}
+        <h2 class="section-title">{section.title}</h2>
+        {section.paragraphs?.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+        {section.points && (
+          <div class="about-values">
+            {section.points.map((point, index) => (
+              <div class="value-item glass--subtle">
+                <h4><span class="text-teal">0{index + 1}.</span> {point.title}</h4>
+                <p>{point.text}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        {section.closing && <p class="care-closing">{section.closing}</p>}
+      </div>
+    </section>
+  ))}
+
+  {page.sections && (
+    <section class="about-detail">
+      <div class="container">
+        <p class="care-cta">
+          <a class="btn btn--primary" href="/#contact">Request an appointment</a>
+        </p>
+      </div>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
@@ -66,13 +110,13 @@ if (!page) {
 
   .page-hero-sub {
     font-size: 1.1rem;
-    color: var(--muted);
+    color: #3d4a5c;
     max-width: 58ch;
     margin-top: var(--space-sm);
   }
 
   .about-detail {
-    background: rgba(17, 24, 39, 0.3);
+    background: transparent;
   }
 
   .about-detail-grid {
@@ -124,6 +168,19 @@ if (!page) {
 
   .care-cta {
     margin-top: var(--space-lg);
+  }
+
+  .care-section {
+    max-width: 78ch;
+  }
+
+  .care-section .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+  }
+
+  .care-closing {
+    margin-top: var(--space-lg);
+    font-size: 1.05rem;
   }
 
   @media (max-width: 800px) {

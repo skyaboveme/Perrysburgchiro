@@ -8,6 +8,19 @@ export interface CarePhoto {
   alt: string;
 }
 
+export interface CarePoint {
+  title: string;
+  text: string;
+}
+
+export interface CareSection {
+  label?: string;
+  title: string;
+  paragraphs?: string[];
+  points?: CarePoint[];
+  closing?: string;
+}
+
 export interface CarePage {
   slug: string;
   title: string;
@@ -15,7 +28,9 @@ export interface CarePage {
   description: string;
   lede: string;
   paragraphs: string[];
-  points: { title: string; text: string }[];
+  points: CarePoint[];
+  notes?: string[];
+  sections?: CareSection[];
   photos: CarePhoto[];
 }
 
@@ -43,10 +58,7 @@ export const carePages: CarePage[] = [
       { title: 'How we work', text: 'CBCT imaging, a specific plan, and progress you can see.' },
     ],
     photos: [
-      photo('IMG_5043.jpg', 'Spinal model consult at Precision Spinal Care'),
-      photo('IMG_5046.jpg', 'Reviewing spinal structure with a patient in Perrysburg'),
-      photo('IMG_5049.jpg', 'Structural consultation at the Perrysburg office'),
-      photo('IMG_5245.jpg', 'Posture scan review at Precision Spinal Care'),
+      photo('IMG_5245.jpg', 'Dr. Taylor reviewing a spinal scan at Precision Spinal Care'),
     ],
   },
   {
@@ -67,10 +79,7 @@ export const carePages: CarePage[] = [
       { title: 'Measured', text: '3D imaging decides the line of drive before hands do.' },
     ],
     photos: [
-      photo('IMG_5055.jpg', 'Upper cervical consult with a spinal model'),
-      photo('IMG_5059.jpg', 'Explaining the upper neck during a visit'),
-      photo('IMG_5353.jpg', 'Pointing out cervical structure on an imaging workstation'),
-      photo('IMG_5355.jpg', 'Reviewing neck films at Precision Spinal Care'),
+      photo('IMG_5353.jpg', 'Dr. Taylor reviewing a cervical scan on the imaging workstation'),
     ],
   },
   {
@@ -91,9 +100,7 @@ export const carePages: CarePage[] = [
       { title: 'A plan', text: 'Correction aimed at the pattern, not the afternoon.' },
     ],
     photos: [
-      photo('IMG_5327.jpg', 'Cervical imaging on the clinic monitor'),
-      photo('IMG_5334.jpg', '3D view of the neck during a headache consult'),
-      photo('IMG_5338.jpg', 'Reviewing a cervical scan with a patient'),
+      photo('IMG_5327.jpg', 'Dr. Taylor at the 3D cervical imaging workstation'),
     ],
   },
   {
@@ -134,9 +141,7 @@ export const carePages: CarePage[] = [
       { title: 'No twisting', text: 'Upper cervical work here does not crack the neck.' },
     ],
     photos: [
-      photo('IMG_5342.jpg', 'Cervical imaging used to plan neck care'),
-      photo('IMG_5063.jpg', 'Neck and spine consult in the treatment room'),
-      photo('IMG_5065.jpg', 'Discussing neck structure with a spinal model'),
+      photo('IMG_5342.jpg', 'Dr. Taylor reviewing cervical imaging for neck care'),
     ],
   },
   {
@@ -155,9 +160,8 @@ export const carePages: CarePage[] = [
       { title: 'Daily life', text: 'Walking, sitting, and sleep are the outcomes that matter.' },
     ],
     photos: [
-      photo('IMG_5395.jpg', 'Lower extremity exam at Precision Spinal Care'),
-      photo('IMG_5399.jpg', 'Assessing the foot and ankle during a visit'),
-      photo('IMG_5464.jpg', 'Extremity evaluation in the Perrysburg clinic'),
+      photo('IMG_5198.jpg', 'Dr. Taylor adjusting a patient’s back at Precision Spinal Care'),
+      photo('IMG_5157.jpg', 'Back adjustment during a visit in Perrysburg'),
     ],
   },
   {
@@ -227,25 +231,55 @@ export const carePages: CarePage[] = [
   },
   {
     slug: 'neuropathy',
-    title: 'Neuropathy',
+    title: 'Neuropathy Treatment',
     menuLabel: 'Neuropathy',
     description:
-      'Low-level light therapy and structural care for burning, tingling, and numbness at Precision Spinal Care.',
-    lede: 'Burning, tingling, numbness, or a loss of balance in the hands or feet is a nerve problem. Medication can turn the volume down. It does not restore the tissue.',
+      'Cutting-edge, non-invasive neuropathy treatment at Precision Spinal Care in Perrysburg.',
+    lede: 'Tired of burning, tingling, numbness, or stabbing pain in your feet and legs. Finally, real relief.',
     paragraphs: [
-      'Alongside structural correction, we use low-level light therapy. Infrared wavelengths are aimed at circulation and inflammation in the affected area.',
-      'It is non-invasive, and it is aimed at the nerve, not at hiding the sensation. We still look upstream: a nerve complaint in the foot or hand can start where that nerve exits the spine.',
+      'You don\u2019t have to live with neuropathy anymore. At Precision Spinal Care, we offer cutting-edge, non-surgical treatments targeting the root causes of neuropathy.',
     ],
     points: [
-      { title: 'Light therapy', text: 'Infrared applied to the area that is burning or numb.' },
-      { title: 'Circulation', text: 'The goal is blood flow and calmer tissue, not a stronger pill.' },
-      { title: 'The spine too', text: 'We check the structural source, not only the foot or hand.' },
+      { title: 'Red Light Therapy', text: 'Deep cellular healing that reduces inflammation and promotes nerve repair.' },
+      { title: 'Shock Wave Therapy', text: 'Stimulates blood flow and breaks up scar tissue around damaged nerves.' },
+      { title: 'Laser Treatments', text: 'Precise, pain-free light energy that accelerates nerve regeneration.' },
+      { title: 'PRP (Platelet-Rich Plasma)', text: 'Uses your body\u2019s own healing factors to repair and restore damaged nerves.' },
+    ],
+    notes: [
+      'Relief that\u2019s long-lasting instead of temporary masking.',
+      'Targets the source, not just symptoms.',
+      'Smarter technology. Earlier answers.',
+      'Where innovation meets intervention.',
+    ],
+    sections: [
+      {
+        title: 'Step Into Relief: A New Path for Neuropathy',
+        paragraphs: [
+          'Stop letting nerve discomfort dictate your pace. We utilize clinically proven red-light therapy to target the root of your symptoms, achieving deeper penetration into the tissue to accelerate your recovery.',
+          'By improving localized circulation and reducing deep-seated inflammation, this advanced technology provides a non-invasive path to support nerve regeneration and lasting comfort.',
+          'Find real relief from:',
+        ],
+        points: [
+          { title: 'Numbness & Tingling', text: 'Restore sensation and quiet the pins and needles.' },
+          { title: 'Cold & Achy Feet', text: 'Boost blood flow to bring warmth back to your extremities.' },
+          { title: 'Leg Cramps', text: 'Soothe involuntary muscle tightness and nighttime spasms.' },
+          { title: 'Balance Issues', text: 'Regain your stability and confidence in every step.' },
+        ],
+        closing: 'Don\u2019t just manage the pain\u2014rebuild your foundation and get back to the activities you love.',
+      },
+      {
+        label: 'Tingling. Numbness. Pain.',
+        title: 'Get Relief from Neuropathy.',
+        paragraphs: [
+          'Cutting-edge, non-invasive treatments at Precision Spinal Care in Perrysburg.',
+          'We offer advanced, non-surgical care for peripheral neuropathy, a condition where damaged nerves cause numbness, tingling, burning, or pain in the hands and feet. This approach uses regenerative medicine and cutting-edge technology to increase blood flow, repair and re-educate damaged nerves, and improve balance and overall nerve function, without surgery, addictive medications, or temporary fixes. After a comprehensive neurological exam, a personalized treatment plan may include biologic therapies like PRP or stem-cell support, class IV laser therapy, and other modalities designed to reduce symptoms and enhance long-term nerve health and quality of life.',
+        ],
+      },
     ],
     photos: [
-      photo('IMG_5102.jpg', 'Low-level light therapy during a clinic visit'),
-      photo('IMG_5125.jpg', 'Laser therapy applied in the treatment room'),
-      photo('IMG_5477.jpg', 'Red light therapy for the feet at Precision Spinal Care'),
-      photo('IMG_5480.jpg', 'Light therapy session for nerve symptoms'),
+      photo('IMG_5457.jpg', 'Foot exam during a neuropathy visit at Precision Spinal Care'),
+      photo('IMG_5395.jpg', 'Examining the feet and ankles in the treatment room'),
+      photo('IMG_5399.jpg', 'Close look at the feet during a neuropathy exam'),
     ],
   },
   {
@@ -265,9 +299,8 @@ export const carePages: CarePage[] = [
       { title: 'Know the limit', text: 'We refer when the disc needs another kind of care.' },
     ],
     photos: [
-      photo('IMG_5276.jpg', 'Posture and spinal findings during a disc consult'),
+      photo('IMG_5276.jpg', 'Dr. Taylor talking through spinal findings during a disc consult'),
       photo('IMG_5093.jpg', 'Structural consult for spinal pain'),
-      photo('IMG_5128.jpg', 'Supportive therapy during spinal recovery'),
     ],
   },
   {
@@ -286,9 +319,7 @@ export const carePages: CarePage[] = [
       { title: 'A record', text: 'Objective findings matter if an auto claim is part of the story.' },
     ],
     photos: [
-      photo('IMG_5109.jpg', 'Therapeutic session after an injury'),
-      photo('IMG_5116.jpg', 'Light therapy as part of injury recovery'),
-      photo('IMG_5136.jpg', 'Clinic treatment following trauma'),
+      photo('IMG_5355.jpg', 'Dr. Taylor reviewing a 3D cervical scan after a whiplash injury'),
     ],
   },
   {
@@ -349,9 +380,7 @@ export const carePages: CarePage[] = [
       { title: 'Conservative first', text: 'A non-surgical plan when the exam supports it.' },
     ],
     photos: [
-      photo('IMG_5434.jpg', 'Hand and wrist region evaluated in clinic'),
-      photo('IMG_5444.jpg', 'Extremity assessment for nerve symptoms'),
-      photo('IMG_5113.jpg', 'Therapy used alongside structural care'),
+      photo('IMG_5276.jpg', 'Dr. Taylor in a consult for a hand and wrist complaint'),
     ],
   },
   {
@@ -370,9 +399,7 @@ export const carePages: CarePage[] = [
       { title: 'Do not wait', text: 'A shoulder that is protected for months gets harder to restore.' },
     ],
     photos: [
-      photo('IMG_5141.jpg', 'Therapy for a shoulder and arm complaint'),
-      photo('IMG_5484.jpg', 'Recovery session in the treatment room'),
-      photo('IMG_5494.jpg', 'Light-based therapy during shoulder recovery'),
+      photo('IMG_5276.jpg', 'Dr. Taylor talking with a patient during a shoulder consult'),
     ],
   },
   {
@@ -413,9 +440,7 @@ export const carePages: CarePage[] = [
       { title: 'Gentle', text: 'Relief without a forceful twist.' },
     ],
     photos: [
-      photo('IMG_5222.jpg', 'Family-centered visit at the Perrysburg office'),
-      photo('IMG_5230.jpg', 'Consultation during a family appointment'),
-      photo('IMG_5234.jpg', 'Care visit with family in the room'),
+      photo('IMG_5206.jpg', 'Dr. Taylor with a mom and child during a family visit'),
     ],
   },
   {
@@ -434,9 +459,8 @@ export const carePages: CarePage[] = [
       { title: 'Held corrections', text: 'We adjust when you need it, and we stop when you are holding.' },
     ],
     photos: [
-      photo('IMG_5239.jpg', 'Wellness visit at Precision Spinal Care'),
-      photo('IMG_5502.jpg', 'Recovery and wellness therapy in the clinic'),
-      photo('IMG_5507.jpg', 'Light therapy as part of ongoing care'),
+      photo('IMG_5362.jpg', 'Chelsea speaking with a patient during a wellness visit'),
+      photo('IMG_5366.jpg', 'Chelsea in consultation with a patient at Precision Spinal Care'),
     ],
   },
 ];
