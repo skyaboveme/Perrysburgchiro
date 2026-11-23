@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { careBySlug, carePages } from '../data/care';
+
+export function getStaticPaths() {
+  return carePages.map((page) => ({ params: { slug: page.slug } }));
+}
+
+const { slug } = Astro.params;
+const page = careBySlug[slug];
+if (!page) {
+  throw new Error(`Missing care page for ${slug}`);
+}
+---
+
+<BaseLayout title={`${page.title} — Precision Spinal Care`} description={page.description} currentPath={`/${page.slug}`}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label" style="justify-content:center;">Chiropractic Care</span>
+      <h1 class="text-center">{page.title}</h1>
+      <p class="page-hero-sub text-center mx-auto">{page.lede}</p>
+    </div>
+  </section>
+
+  <section class="about-detail">
+    <div class="container">
+      <div class="about-detail-grid">
+        <div class="about-detail-image">
+          {page.photos.map((photo) => (
+            <div class="about-image-frame">
+              <img src={photo.src} alt={photo.alt} loading="lazy" width="1200" height="800" />
+            </div>
+          ))}
+        </div>
+        <div class="about-detail-content">
+          {page.paragraphs.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+          <div class="about-values">
+            {page.points.map((point, index) => (
+              <div class="value-item glass--subtle">
+                <h4><span class="text-teal">0{index + 1}.</span> {point.title}</h4>
+                <p>{point.text}</p>
+              </div>
+            ))}
+          </div>
+          <p class="care-cta">
+            <a class="btn btn--primary" href="/#contact">Request an appointment</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: 10rem;
+    padding-bottom: var(--space-xl);
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .page-hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 58ch;
+    margin-top: var(--space-sm);
+  }
+
+  .about-detail {
+    background: var(--paper-deep);
+  }
+
+  .about-detail-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.2fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .about-detail-image {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .about-image-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(70, 52, 32, 0.1);
+    box-shadow: var(--shadow-card);
+  }
+
+  .about-image-frame img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .about-detail-content p {
+    margin-bottom: var(--space-sm);
+  }
+
+  .about-values {
+    display: grid;
+    gap: var(--space-sm);
+    margin-top: var(--space-xl);
+  }
+
+  .value-item {
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+  }
+
+  .value-item p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+
+  .care-cta {
+    margin-top: var(--space-lg);
+  }
+
+  @media (max-width: 800px) {
+    .about-detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-image-frame img {
+      height: 220px;
+    }
+  }
+</style>

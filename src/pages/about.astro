@@ -3,6 +3,7 @@
  * about.astro — About Precision Spinal Care
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
 ---
 
 <BaseLayout title="About Us — Precision Spinal Care" description="Learn about Dr. Taylor Mainous and our approach to structural corrective chiropractic care in Perrysburg, Ohio." currentPath="/about">
@@ -21,11 +22,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="about-detail-image fade-up">
           <div class="about-image-frame">
             <img
-              src="https://chiropractorperrysburg.com/wp-content/uploads/2026/03/IMG_9167.jpg"
-              alt="Dr. Taylor Mainous D.C."
+              src="/gallery/IMG_5276.jpg"
+              alt="Dr. Taylor Mainous talking with a patient"
               loading="lazy"
-              width="600"
-              height="400"
+              width="1200"
+              height="800"
+            />
+            <img
+              class="about-second"
+              src="/gallery/IMG_5195.jpg"
+              alt="Dr. Taylor Mainous performing a chiropractic adjustment"
+              loading="lazy"
+              width="1200"
+              height="800"
             />
           </div>
         </div>
@@ -35,6 +44,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="fade-up">Dr. Taylor is focused on delivering Structural Corrective care, utilizing objective analytics and research-backed methods. His approach is completely different from traditional chiropractic — no guessing, no cracking, just precise structural correction.</p>
           <p class="fade-up">With state-of-the-art CBCT 3D imaging technology, Dr. Taylor can pinpoint exactly where the problems are in your spine and create a customized corrective plan backed by measurable data.</p>
           <p class="fade-up">At Precision Spinal Care, our chiropractic team is ready to meet with you to discuss your needs. We will help design a program that is right for you — whether you're dealing with chronic pain, recovering from an injury, or looking to optimize your overall health.</p>
+          <p class="fade-up">Chelsea, his wife, is an advanced nurse practitioner at the practice.</p>
 
           <div class="about-values cards-stagger" style="margin-top: var(--space-xl);">
             <div class="value-item glass--subtle" style="padding: var(--space-md); border-radius: var(--radius-md);">
@@ -55,6 +65,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <PhotoGallery />
+
 </BaseLayout>
 
 <style>
@@ -72,7 +84,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .about-detail {
-    background: rgba(17, 24, 39, 0.3);
+    background: var(--paper-deep);
   }
 
   .about-detail-grid {
@@ -85,7 +97,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .about-image-frame {
     border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(70, 52, 32, 0.1);
     box-shadow: var(--shadow-card);
   }
 
