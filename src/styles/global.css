@@ -80,8 +80,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--bone-white);
-  background: var(--midnight);
+  color: #1a2332;
+  background: #f7f4ef;
   line-height: 1.7;
   font-weight: 400;
   overflow-x: hidden;
@@ -114,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.15;
-  color: var(--bone-white);
+  color: var(--midnight);
 }
 
 h1 {
@@ -140,13 +140,19 @@ h4 {
 }
 
 p {
-  color: var(--muted);
+  color: #3d4a5c;
   font-size: 1.05rem;
   max-width: 65ch;
 }
 
-.text-teal { color: var(--teal-glow); }
-.text-gold { color: var(--warm-gold); }
+.text-teal { color: #0b7a5c; }
+.text-gold { color: #8a5a10; }
+.card .text-teal,
+.glass .text-teal,
+.site-header .text-teal,
+.site-footer .text-teal { color: var(--teal-glow); }
+.card .text-gold,
+.glass .text-gold { color: var(--warm-gold); }
 .text-ice { color: var(--ice-blue); }
 .text-white { color: var(--bone-white); }
 
@@ -177,11 +183,38 @@ section {
 }
 
 .glass--subtle {
-  background: rgba(17, 24, 39, 0.35);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: #ffffff;
+  border: 1px solid rgba(10, 14, 23, 0.08);
   border-radius: var(--radius-md);
+  color: var(--midnight);
+}
+
+.site-header,
+.site-footer,
+.card,
+.glass {
+  color: var(--bone-white);
+}
+
+.site-header h1, .site-header h2, .site-header h3, .site-header h4,
+.site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4,
+.card h1, .card h2, .card h3, .card h4,
+.glass h1, .glass h2, .glass h3, .glass h4 {
+  color: var(--bone-white);
+}
+
+.site-footer p,
+.card p,
+.glass p {
+  color: #cbd5e1;
+}
+
+.glass--subtle h1, .glass--subtle h2, .glass--subtle h3, .glass--subtle h4 {
+  color: var(--midnight);
+}
+
+.glass--subtle p {
+  color: #3d4a5c;
 }
 
 .glass--teal {
@@ -221,8 +254,8 @@ section {
 
 .btn--outline {
   background: transparent;
-  color: var(--teal-glow);
-  border: 2px solid var(--teal-border);
+  color: #0b7a5c;
+  border: 2px solid #0b7a5c;
 }
 
 .btn--outline:hover {
@@ -252,7 +285,7 @@ section {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--teal-glow);
+  color: #0b7a5c;
   margin-bottom: var(--space-sm);
 }
 
@@ -270,7 +303,7 @@ section {
 }
 
 .section-subtitle {
-  color: var(--muted);
+  color: #3d4a5c;
   font-size: 1.1rem;
   max-width: 55ch;
   line-height: 1.7;

@@ -1,0 +1,278 @@
+---
+/**
+ * PhotoGallery.astro — One slide per clinic scene.
+ * Near-duplicate frames are used on other pages, not in this carousel.
+ */
+const slides = [
+  {
+    src: '/gallery/IMG_5276.jpg',
+    alt: 'Dr. Taylor talking with a patient during a structural consult',
+    label: 'Structural consult',
+  },
+  {
+    src: '/gallery/IMG_5121.jpg',
+    alt: 'Low-level laser therapy during a visit in Perrysburg',
+    label: 'Laser therapy',
+  },
+  {
+    src: '/gallery/IMG_5195.jpg',
+    alt: 'Chiropractic adjustment at Precision Spinal Care',
+    label: 'Adjustment',
+  },
+  {
+    src: '/gallery/IMG_5206.jpg',
+    alt: 'A family visit at the Perrysburg office',
+    label: 'Family visit',
+  },
+  {
+    src: '/gallery/IMG_5248.jpg',
+    alt: 'Dr. Taylor reviewing digital spinal scans with a patient',
+    label: 'Digital X-Ray',
+  },
+  {
+    src: '/gallery/IMG_5302.jpg',
+    alt: 'CBCT imaging room at Precision Spinal Care',
+    label: 'CBCT imaging',
+  },
+  {
+    src: '/gallery/IMG_5345.jpg',
+    alt: '3D cervical imaging on the clinic monitor',
+    label: '3D cervical imaging',
+  },
+  {
+    src: '/gallery/IMG_5362.jpg',
+    alt: 'Seated consultation at Precision Spinal Care',
+    label: 'Consultation',
+  },
+  {
+    src: '/gallery/IMG_5457.jpg',
+    alt: 'Foot and ankle exam at the Perrysburg clinic',
+    label: 'Extremity exam',
+  },
+  {
+    src: '/gallery/IMG_5475.jpg',
+    alt: 'Red light therapy for the feet',
+    label: 'Red light therapy',
+  },
+  {
+    src: '/gallery/IMG_5509.jpg',
+    alt: 'Precision Spinal Care wordmark in the reception area',
+    label: 'The office',
+  },
+];
+---
+
+<section class="clinic-gallery" id="gallery">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label mx-auto" style="justify-content:center;">The Clinic</span>
+      <h2 class="section-title">Inside <span class="text-teal">Precision Spinal Care</span></h2>
+      <p class="section-subtitle mx-auto">Treatment rooms, CBCT imaging, and visits at our Perrysburg office.</p>
+    </div>
+
+    <div class="carousel" data-carousel tabindex="0" aria-roledescription="carousel" aria-label="Clinic photos">
+      <div class="carousel-viewport">
+        {slides.map((slide, index) => (
+          <figure class="carousel-slide" data-slide hidden={index !== 0} aria-hidden={index !== 0}>
+            <img
+              src={slide.src}
+              alt={slide.alt}
+              width="1200"
+              height="800"
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
+            <figcaption>{slide.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <button class="carousel-btn prev" type="button" data-dir="-1" aria-label="Previous photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="carousel-btn next" type="button" data-dir="1" aria-label="Next photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="carousel-dots" role="tablist" aria-label="Choose a clinic photo">
+        {slides.map((slide, index) => (
+          <button
+            class="carousel-dot"
+            type="button"
+            role="tab"
+            data-dot={index}
+            aria-label={slide.label}
+            aria-selected={index === 0}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .clinic-gallery {
+    background: transparent;
+  }
+
+  .carousel {
+    position: relative;
+    margin-top: var(--space-xl);
+    outline: none;
+  }
+
+  .carousel:focus-visible {
+    box-shadow: 0 0 0 3px rgba(6, 214, 160, 0.35);
+    border-radius: var(--radius-lg);
+  }
+
+  .carousel-viewport {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow-card);
+    background: rgba(10, 14, 23, 0.5);
+  }
+
+  .carousel-slide {
+    margin: 0;
+    position: relative;
+  }
+
+  .carousel-slide[hidden] {
+    display: none;
+  }
+
+  .carousel-slide img {
+    display: block;
+    width: 100%;
+    height: min(62vh, 640px);
+    object-fit: cover;
+  }
+
+  .carousel-slide figcaption {
+    position: absolute;
+    left: var(--space-md);
+    bottom: var(--space-md);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-full);
+    background: rgba(10, 14, 23, 0.72);
+    color: var(--bone-white);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: calc(50% - 1.6rem);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    background: rgba(10, 14, 23, 0.72);
+    color: var(--bone-white);
+    cursor: pointer;
+  }
+
+  .carousel-btn:hover {
+    border-color: var(--teal-glow);
+    color: var(--teal-glow);
+  }
+
+  .carousel-btn.prev { left: var(--space-sm); }
+  .carousel-btn.next { right: var(--space-sm); }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: var(--space-md);
+  }
+
+  .carousel-dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255, 255, 255, 0.28);
+    cursor: pointer;
+  }
+
+  .carousel-dot[aria-selected="true"] {
+    background: var(--teal-glow);
+  }
+
+  @media (max-width: 640px) {
+    .carousel-slide img {
+      height: 52vh;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-slide img {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-carousel]').forEach((root) => {
+    const slides = [...root.querySelectorAll('[data-slide]')];
+    const dots = [...root.querySelectorAll('[data-dot]')];
+    let index = 0;
+
+    const show = (next) => {
+      index = (next + slides.length) % slides.length;
+      slides.forEach((el, i) => {
+        const on = i === index;
+        el.hidden = !on;
+        el.setAttribute('aria-hidden', String(!on));
+      });
+      dots.forEach((dot, i) => {
+        dot.setAttribute('aria-selected', String(i === index));
+      });
+    };
+
+    root.querySelectorAll('[data-dir]').forEach((button) => {
+      button.addEventListener('click', () => {
+        show(index + Number(button.getAttribute('data-dir')));
+      });
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        show(Number(dot.getAttribute('data-dot')));
+      });
+    });
+
+    root.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        show(index + 1);
+      }
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        show(index - 1);
+      }
+    });
+
+    let startX = null;
+    root.addEventListener('touchstart', (event) => {
+      startX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    root.addEventListener('touchend', (event) => {
+      if (startX == null) return;
+      const delta = event.changedTouches[0].clientX - startX;
+      if (Math.abs(delta) > 40) show(index + (delta < 0 ? 1 : -1));
+      startX = null;
+    });
+  });
+</script>

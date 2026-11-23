@@ -2,30 +2,82 @@
 /**
  * Header.astro — Sticky frosted-glass navigation
  */
+import { careBySlug, careMenu } from '../data/care';
+
 interface Props {
   currentPath?: string;
 }
 const { currentPath = '/' } = Astro.props;
 
-const navLinks = [
+const beforeCare = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
+];
+
+const afterCare = [
+  { href: '/#gallery', label: 'Gallery' },
   { href: '/#services', label: 'Services' },
   { href: '/#reviews', label: 'Reviews' },
   { href: '/#contact', label: 'Contact' },
 ];
+
+const careActive = careMenu.some((group) =>
+  group.slugs.some((slug) => currentPath === `/${slug}`),
+);
 ---
 
 <header class="site-header" id="site-header">
   <div class="header-inner container">
-    <a href="/" class="logo" aria-label="Precision Spinal Care Home">
-      <span class="logo-mark">PSC</span>
-      <span class="logo-text">Precision<br />Spinal Care</span>
+    <a href="/" class="logo">
+      <img
+        class="logo-wordmark"
+        src="/precision-spinal-care-logo.png"
+        alt="Precision Spinal Care"
+        width="422"
+        height="131"
+      />
     </a>
 
     <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
       <ul class="nav-list">
-        {navLinks.map((link) => (
+        {beforeCare.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav-link', { active: currentPath === link.href }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+        <li class="nav-item">
+          <button
+            type="button"
+            class:list={['nav-link', 'nav-dropdown-btn', { active: careActive }]}
+            aria-expanded="false"
+            aria-haspopup="true"
+            data-dropdown-toggle
+          >
+            Chiropractic Care
+            <svg class="caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            {careMenu.map((group) => (
+              <div class="dropdown-group">
+                {group.label && <p class="dropdown-label">{group.label}</p>}
+                {group.slugs.map((slug) => (
+                  <a
+                    href={`/${slug}`}
+                    class:list={['dropdown-link', { active: currentPath === `/${slug}` }]}
+                  >
+                    {careBySlug[slug].menuLabel}
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+        </li>
+        {afterCare.map((link) => (
           <li>
             <a
               href={link.href}
@@ -60,6 +112,10 @@ const navLinks = [
     width: 100%;
     z-index: 1000;
     padding: 1rem 0;
+    background: rgba(10, 14, 23, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -87,28 +143,11 @@ const navLinks = [
     flex-shrink: 0;
   }
 
-  .logo-mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: linear-gradient(135deg, var(--teal-glow), #04b890);
-    border-radius: 10px;
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 0.9rem;
-    color: var(--midnight);
-    letter-spacing: 0.02em;
-  }
-
-  .logo-text {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 600;
-    line-height: 1.25;
-    color: var(--bone-white);
-    letter-spacing: 0.01em;
+  .logo-wordmark {
+    display: block;
+    height: 48px;
+    width: auto;
+    filter: brightness(0) invert(1);
   }
 
   /* ── Nav ── */
@@ -121,17 +160,19 @@ const navLinks = [
   .nav-list {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.4rem;
   }
 
   .nav-link {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 0.45rem 0.75rem;
     font-family: var(--font-heading);
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--muted);
-    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.03);
     transition: all 0.3s ease;
     position: relative;
   }
@@ -140,10 +181,96 @@ const navLinks = [
   .nav-link.active {
     color: var(--bone-white);
     background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.32);
   }
 
   .nav-link.active {
     color: var(--teal-glow);
+    border-color: var(--teal-border);
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-dropdown-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .caret {
+    transition: transform 0.2s ease;
+  }
+
+  .nav-item.open .caret,
+  .nav-item:hover .caret,
+  .nav-item:focus-within .caret {
+    transform: rotate(180deg);
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(640px, 72vw);
+    max-height: 70vh;
+    overflow: auto;
+    columns: 2;
+    column-gap: 1rem;
+    padding: 0.75rem;
+    background: rgba(10, 14, 23, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    z-index: 40;
+  }
+
+  .nav-item:hover .dropdown,
+  .nav-item:focus-within .dropdown,
+  .nav-item.open .dropdown {
+    display: block;
+  }
+
+  .dropdown-group {
+    break-inside: avoid;
+  }
+
+  .dropdown-group + .dropdown-group {
+    margin-top: 0.65rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .dropdown-label {
+    margin: 0 0 0.35rem;
+    padding: 0 0.65rem;
+    font-family: var(--font-heading);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-glow);
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 0.4rem 0.65rem;
+    border-radius: var(--radius-sm);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+  }
+
+  .dropdown-link:hover,
+  .dropdown-link.active {
+    color: var(--bone-white);
+    background: rgba(255, 255, 255, 0.04);
   }
 
   .nav-phone {
@@ -231,6 +358,38 @@ const navLinks = [
       padding: 0.75rem 1rem;
     }
 
+    .nav-dropdown-btn {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .dropdown {
+      position: static;
+      transform: none;
+      width: auto;
+      max-height: none;
+      columns: auto;
+      margin: 0.15rem 0 0.35rem;
+      padding: 0.25rem 0 0.25rem 0.5rem;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown {
+      display: none;
+    }
+
+    .nav-item.open .dropdown {
+      display: block;
+    }
+
+    .main-nav {
+      overflow-y: auto;
+    }
+
     .nav-phone {
       margin-left: 0;
       margin-top: 1rem;
@@ -263,7 +422,7 @@ const navLinks = [
     });
 
     // Close on nav link click
-    nav.querySelectorAll('.nav-link').forEach((link) => {
+    nav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         toggle.setAttribute('aria-expanded', 'false');
         nav.classList.remove('open');
@@ -271,4 +430,13 @@ const navLinks = [
       });
     });
   }
+
+  document.querySelectorAll('[data-dropdown-toggle]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.nav-item');
+      if (!item) return;
+      const open = item.classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+    });
+  });
 </script>
